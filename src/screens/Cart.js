@@ -1,5 +1,5 @@
 import React from 'react'
-import Delete from '@material-ui/icons/Delete'
+
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 export default function Cart() {
   let data = useCart();
@@ -19,7 +19,7 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/auth/orderData", {
+    let response = await fetch("https://food-api-theta.vercel.app/orderData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: 'POST',
@@ -63,7 +63,7 @@ export default function Cart() {
                 <td>{food.qty}</td>
                 <td>{food.size}</td>
                 <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
+                <td ><button type="button" className="btn p-0"><div onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
             ))}
           </tbody>
         </table>
