@@ -11,18 +11,10 @@ export default function Home() {
 
   const fetchFoodData = async () => {
     try {
-      const response = await axios.post('https://food-api-theta.vercel.app/foodData', {
-        // Your request data, if applicable
-      }, {
-        // Axios request configuration
-        withCredentials: true, // Include credentials if needed
-    
-        // Add necessary headers for CORS and content type
-        headers: {
-          'Content-Type': 'application/json',
-          // Add any other required headers
-        },
-      });
+      const response = await axios.post('https://food-api-theta.vercel.app/foodData', requestData, {
+        withCredentials: true,
+        // other options
+    });
     
 
       if (response.data.length >= 2) {
