@@ -12,7 +12,7 @@ export default function Navbar(props) {
     localStorage.setItem('temp', "first")
     let navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem('token')
+        localStorage.removeItem('user')
 
         navigate("/login")
     }
@@ -36,12 +36,12 @@ export default function Navbar(props) {
                             <li className="nav-item">
                                 <Link className="nav-link fs-5 mx-3 active" aria-current="page" to="/">Home</Link>  {/* index.css - nav-link color white */}
                             </li>
-                            {(localStorage.getItem("token")) ?
+                            {(localStorage.getItem("user")) ?
                                 <li className="nav-item">
                                     <Link className="nav-link fs-5 mx-3 active" aria-current="page" to="/myorder" >My Orders</Link>  {/* index.css - nav-link color white */}
                                 </li> : ""}
                         </ul>
-                        {(!localStorage.getItem("token")) ?
+                        {(!localStorage.getItem("user")) ?
                             <form className="d-flex">
                                 <Link className="btn bg-white text-success mx-1 " to="/login">Login</Link>
                                 <Link className="btn bg-white text-success mx-1" to="/signup">Signup</Link>
