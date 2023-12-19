@@ -30,7 +30,8 @@ const Login = () => {
         console.log('User data:', response.data);
         localStorage.setItem('user', JSON.stringify(response.data));
         navigate("/")
-        // useEffect for client-side operations
+        const username = formData.username;
+        localStorage.setItem('username', username  );
       
 
       } else {

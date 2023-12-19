@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-
+import { Badge } from 'react-bootstrap';
 import { useCart } from './ContextReducer';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
@@ -52,7 +52,9 @@ export default function Navbar(props) {
                                     <div color="secondary" badgeContent={items.length} >
                                  
                                     </div>
-                                    Cart
+                                 
+                                    Cart{" "}
+                                    <Badge pill bg='danger'>{items.length}</Badge>
                                 </div>
 
                                 {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}

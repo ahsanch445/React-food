@@ -16,7 +16,7 @@ export default function MyOrder() {
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify({
-                email:localStorage.getItem('userEmail')
+               username:localStorage.getItem('username')
             })
         }).then(async (res) => {
             let response = await res.json()
@@ -69,7 +69,7 @@ export default function MyOrder() {
                                                                         <span className='m-1'>{arrayData.size}</span>
                                                                         <span className='m-1'>{data}</span>
                                                                         <div className=' d-inline ms-2 h-100 w-20 fs-5' >
-                                                                            ₹{arrayData.price}/-
+                                                                            Rs{arrayData.price}/-
                                                                         </div>
                                                                     </div>
                                                                 </div>

@@ -77,7 +77,7 @@ const Register = () => {
             <div className="input">
                 <input type="password" name='password' value={formData.password} onChange={handleChange} placeholder="Password"/>
             </div>
-        <button type="submit" className="btn1">  Login</button>
+        <button type="submit" className="btn1">Sign Up</button>
         <p> Already have a account?
         <Link to="/login">Login</Link>
         </p>

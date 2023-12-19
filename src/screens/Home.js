@@ -1,50 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
-import axios from 'axios'
 // import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 export default function Home() {
-  const [search, setsearch] = useState("")
-  const [fooddata, setFooddata] = useState([]);
-  const [category, setCategory] = useState([]);
-
-  const fetchFoodData = async () => {
-    try {
-      const response = await axios.post('https://food-api-theta.vercel.app/foodData', requestData, {
-        withCredentials: true,
-        // other options
-    });
+  const [foodCat, setFoodCat] = useState([])
+  const [foodItems, setFoodItems] = useState([])
+  const [search, setSearch] = useState('')
+  const loadFoodItems = async () => {
+    let response = await fetch("https://food-api-theta.vercel.app/foodData", {
     
-
-      if (response.data.length >= 2) {
-        console.log(response.data[0], response.data[1]); // Check the structure of response.data
-
-        // Assuming response.data[0] contains an object with 'CategoryName' property
-        setCategory(response.data[0]); // Setting category with response.data[0]
-        setFooddata(response.data[1]);
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+
+    });
+    response = await response.json()
+    // console.log(response[1][0].CategoryName)
+    setFoodItems(response[0])
+    setFoodCat(response[1])
+  }
 
   useEffect(() => {
-    fetchFoodData();
-  }, []);
+    loadFoodItems()
+  }, [])
+
   return (
     <div >
       <div>
         <Navbar />
       </div>
-      <div>
-        <div id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel">
+      <div style={{height:"400px"}} >
+        <div style={{height:"400px"}}  id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel">
 
-          <div className="carousel-inner " id='carousel'>
+          <div style={{height:"400px"}}  className="carousel-inner " id='carousel'>
             <div class=" carousel-caption  " style={{ zIndex: "9" }}>
               <div className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
-                <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => {setsearch(e.target.value) }} />
-                <button className="btn text-white bg-danger" onClick={() => { setsearch('') }}>X</button>
+                <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
+                <button className="btn text-white bg-danger" onClick={() => { setSearch('') }}>X</button>
               </div>
             </div>
             <div className="carousel-item active" >
@@ -69,8 +63,8 @@ export default function Home() {
       </div>
       <div className='container'> {/* boootstrap is mobile first */}
         {
-        fooddata !== []
-            ? fooddata.map((data) => {
+          foodCat !== []
+            ? foodCat.map((data) => {
               return (
                 // justify-content-center
                 <div className='row mb-3'>
@@ -78,11 +72,11 @@ export default function Home() {
                     {data.CategoryName}
                   </div>
                   <hr id="hr-success" style={{ height: "4px", backgroundImage: "-webkit-linear-gradient(left,rgb(0, 255, 137),rgb(0, 0, 0))" }} />
-                  {category !== [] ?category.filter(
+                  {foodItems !== [] ? foodItems.filter(
                     (items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
                     .map(filterItems => {
                       return (
-                        <div key={filterItems.id} className='col-12 col-md-6 col-lg-3'>
+                        <div  key={filterItems.id} className='col-12 col-md-6 col-lg-4'>
                           {console.log(filterItems.url)}
                           <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} ></Card>
                         </div>
