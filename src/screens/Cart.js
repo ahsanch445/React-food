@@ -29,9 +29,10 @@ export default function Cart() {
         order_date: new Date().toDateString()
       })
     });
+    dispatch({ type: "DROP" })
     console.log("JSON RESPONSE:::::", response.status)
     if (response.status === 200) {
-      dispatch({ type: "DROP" })
+   
     }
   }
 
