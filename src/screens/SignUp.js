@@ -43,8 +43,7 @@ const Register = () => {
         navigate("/login")
 
 
-        const username = formData.username;
-        localStorage.setItem('username', username  );
+   
 
 
       } else {
@@ -62,7 +61,7 @@ const Register = () => {
     <div className="main">
         <div className="wrapper">
         <form onClick={handleSubmit}>
-            <h1>Login</h1>
+            <h1>Sign Up</h1>
            
             <div className="input">
                 <input type="text" name='fullname' value={formData.fullname} onChange={handleChange} placeholder="Fullname" />
