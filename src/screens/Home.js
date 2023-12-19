@@ -31,7 +31,7 @@ export default function Home() {
       <div>
         <Navbar />
       </div>
-      <div style={{height:"400px"}} >
+      <div style={{height:"400px"}}>
         <div style={{height:"400px"}}  id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel">
 
           <div style={{height:"400px"}}  className="carousel-inner " id='carousel'>

@@ -43,7 +43,8 @@ const Register = () => {
         navigate("/login")
 
 
-   
+        const username = formData.username;
+        localStorage.setItem('username', username  );
 
 
       } else {
