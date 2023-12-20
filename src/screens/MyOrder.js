@@ -86,7 +86,7 @@ export default function MyOrder() {
                                         })
 
                                     )
-                                }) : <h2 style={{marginTop:"230px",display:"flex", justifyContent:"center"}}  className='   w-100 text-black fw-bold m-7'> No Order Found!</h2>
+                                }) : <h2 style={{marginTop:"230px", marginBottom:"270px",display:"flex", justifyContent:"center"}}  className='   w-100 text-black fw-bold m-7'> No Order Found!</h2>
                         )
                     }) : ""}
                 </div>

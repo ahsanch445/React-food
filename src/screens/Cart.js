@@ -38,12 +38,12 @@ export default function Cart() {
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
   return (
-    <div style={{background:"#dadada"}}>
+    <div>
 
       {console.log(data)}
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
         <table className='table table-hover '>
-          <thead className=' text-success fs-4'>
+          <thead style={{color:" #ff0157"}} className=' fs-4'>
             <tr>
               <th scope='col' >#</th>
               <th scope='col' >Name</th>
@@ -67,7 +67,7 @@ export default function Cart() {
         </table>
         <div><h1 className='fs-2 text-white'>Total Price: {totalPrice}/-</h1></div>
         <div>
-          <button className='btn bg-success mt-5 ' onClick={handleCheckOut} > Check Out </button>
+          <button id="checkbtn" className='btn  mt-5 ' onClick={handleCheckOut} > Check Out </button>
         </div>
       </div>
 

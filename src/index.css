@@ -9,6 +9,10 @@
 
 }
 
+:root {
+  
+  --yellow-color: #fdbe35;
+}
 
 
 
@@ -37,3 +41,70 @@ code {
   align-items: center;
   flex-direction: column;
 }
+#mybtn{
+
+color: rgb(165, 38, 38);
+  padding: 13px 16px;
+
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  font-family: Source Sans 3;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 100%;
+  border: none;
+  background: var(
+    --yellow-button,
+    linear-gradient(93deg, #fff3f3 -47.72%, #eeecea 136.81%)
+  );
+  box-shadow: 0px 14px 32px 0px rgba(255, 178, 14, 0.29),
+    0px 5px 8px 0px rgba(222, 151, 0, 0.24);
+}
+#mybtn2{
+
+  color: rgb(165, 38, 38);
+    padding: 10px 16px;
+  
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    font-family: Source Sans 3;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 100%;
+    border: none;
+    background: var(
+      --yellow-button,
+      linear-gradient(93deg, #fff3f3 -47.72%, #eeecea 136.81%)
+    );
+    box-shadow: 0px 14px 32px 0px rgba(255, 178, 14, 0.29),
+      0px 5px 8px 0px rgba(222, 151, 0, 0.24);
+  }
+  #checkbtn {
+    display: flex;
+  
+    padding: 21px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    font-family: Source Sans 3;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 100%;
+    border: none;
+    background: var(
+      --yellow-button,
+      linear-gradient(93deg, #ffb800 -47.72%, #ff8a00 136.81%)
+    );
+    box-shadow: 0px 14px 32px 0px rgba(255, 178, 14, 0.29),
+      0px 5px 8px 0px rgba(222, 151, 0, 0.24);
+  }
+  

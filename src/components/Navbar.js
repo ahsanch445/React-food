@@ -38,7 +38,7 @@ export default function Navbar(props) {
                             </li>
                             {(localStorage.getItem("user")) ?
                                 <li className="nav-item">
-                                    <Link style={{ color: "#fff",fontWeight: "600"}}  className="nav-link fs-5 mx-3 active" aria-current="page" to="/myorder" >My Orders</Link>  {/* index.css - nav-link color white */}
+                                    <Link style={{ color: "#fff",fontWeight: "600",opacity:"0.8"}}  className="nav-link fs-5 mx-3 active" aria-current="page" to="/myorder" >My Orders</Link>  {/* index.css - nav-link color white */}
                                 </li> : ""}
                         </ul>
                         {(!localStorage.getItem("user")) ?
@@ -48,7 +48,7 @@ export default function Navbar(props) {
                             </form> :
                             <div>
 
-                                <div className="btn bg-white text-success mx-2 " onClick={loadCart}>
+                                <div id='mybtn2'  className="btn bg-white text-danger mx-2 " onClick={loadCart}>
                                     <div color="secondary" badgeContent={items.length} >
                                  
                                     </div>
@@ -59,7 +59,7 @@ export default function Navbar(props) {
 
                                 {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
 
-                                <button onClick={handleLogout} className="btn bg-white text-success" >Logout</button></div>}
+                                <button id='mybtn' onClick={handleLogout} className="btn bg-white text-danger" >Logout</button></div>}
                     </div>
                 </div>
             </nav>
