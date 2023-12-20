@@ -54,7 +54,7 @@ const Login = () => {
               <input type="password" name='password' value={formData.password} onChange={handleChange} placeholder="Password"/>
             </div>
             <button type="submit" className="btn1">Login</button>
-            <p> Create an Account?
+            <p className='p2'> Create an Account?
               <Link to="/signup">SignUp</Link>
             </p>
           </form>

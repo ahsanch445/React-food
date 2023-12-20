@@ -78,7 +78,7 @@ const Register = () => {
                 <input type="password" name='password' value={formData.password} onChange={handleChange} placeholder="Password"/>
             </div>
         <button type="submit" className="btn1">Sign Up</button>
-        <p> Already have a account?
+        <p id="p1"> Already have a account?
         <Link to="/login">Login</Link>
         </p>
         </form>

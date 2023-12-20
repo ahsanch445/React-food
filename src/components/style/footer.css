@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Qwigley&family=Source+Sans+3:wght@400;700;900&display=swap");
+
+/* ! genderal formating  */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* todo roots  */
+:root {
+  --yellow-color: #fdbe35;
+}
+
+/* ? header container style starts here  */
+
+/* * nav style start here  */
+
+
+/* ? main container style ends here  */
+
+/* ? footer container style starts here  */
+footer {
+  background: #090d12;
+}
+.hr-first {
+  margin-top: 75px;
+  margin-bottom: 63px;
+}
+
+.footer-left > div > h2 {
+  color: #fff;
+  font-family: Source Sans 3;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.footer-left > div > p {
+  color: var(--theme-gray-100, #f5f5f5);
+  font-family: Source Sans 3;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.footer-right > h2 {
+  color: #f5f5f5;
+  font-family: Source Sans 3;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 120%;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.footer-right > .social-icons > img {
+  color: var(--theme-gray-100, #f5f5f5);
+  font-family: Font Awesome 5 Brands;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  opacity: 0.2;
+  line-height: 100%; /* 24px */
+  gap: 10px;
+}
+.social-icons img {
+  margin-left: 5px;
+}
+.footer-right > h3 {
+  color: #bbb;
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.footer-btn {
+  display: flex;
+  width: 133px;
+  padding: 21px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  font-family: Source Sans 3;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 100%;
+  border: none;
+  background: var(
+    --yellow-button,
+    linear-gradient(93deg, #ffb800 -47.72%, #ff8a00 136.81%)
+  );
+  box-shadow: 0px 14px 32px 0px rgba(255, 178, 14, 0.29),
+    0px 5px 8px 0px rgba(222, 151, 0, 0.24);
+}
+
+.footer-left {
+  flex: 2;
+  gap: 34px;
+}
+
+.footer-right {
+  flex: 1;
+}
+
+.footer-two {
+  width: 1480px;
+}
+
+.input-email {
+    z-index: 999;
+  width: 334px;
+  height: 60px;
+  padding: 7px 0px 8px 16px;
+  border-radius: 8px;
+  background: var(--theme-gray-800, #424242);
+  border: none;
+}
+
+.input-email::placeholder {
+  color: #adadad;
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.rights {
+  width: 1480px;
+}
+
+.rights > p {
+  color: var(--theme-gray-100, #f5f5f5);
+  font-family: Open Sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 120%;
+  margin-top: 16px;
+}
+
+.rights > p > span {
+  color: var(--theme-gray-100, #f5f5f5);
+  font-weight: 700;
+}
+
+.mail-icon {
+  position: relative;
+  top: 67px;
+  left: 15px;
+}
+
+/* ? footer container style ends here  */
+
+/* ? responsive navbar style starts here  */
+.responsivenavbar {
+  display: none;
+}
+/* ? responsive navbar style ends here  */
+
+
+
+
+
+
+
+@media (max-width: 1500px) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+
+  footer {
+    padding: 20px;
+  }
+
+  .footer-left,
+  .footer-right {
+    flex: 1;
+    width: 100%;
+  }
+
+  .rights {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p1 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .p2 {
+    text-align: center;
+  }
+
+  .footer-two {
+    width: 100%;
+  }
+
+  .footer-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .input-email {
+    width: 100%;
+  }
+}
+
+#footer-left{
+    
+    width: 100%;
+    display: flex;
+}

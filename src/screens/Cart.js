@@ -17,7 +17,7 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     let username = localStorage.getItem("username");
-    let response = await fetch("https://food-api-theta.vercel.app/orderData", {
+    let response = await fetch("orderData", {
       
       method: 'POST',
       headers: {

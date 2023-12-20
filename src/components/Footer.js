@@ -1,22 +1,79 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./style/footer.css"
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  let router = useNavigate()
+  function emailSend(){
+    router("/")
+  }
   return (
-    <div><div className="container">
-    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div className="col-md-4 d-flex align-items-center">
-        <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        </a>
-        <span className="text-muted">© 2022 <i>GoFood</i>, Inc</span>
+
+
+<footer>
+      <div className="  footer-coloum d-flex flex-column align-items-center">
+        <img src="./img/HR.svg" alt="HR-line" className="hr-first img-fluid" />
+        <div className=" footer-two container-fluid d-flex flex-wrap">
+          <div id="footer-left" className=" footer-left d-flex flex-wrap ">
+            <div className=" company">
+              <h2 className="mb-5">Company</h2>
+              <p>About Us</p>
+              <p>Team</p>
+              <p>Careers</p>
+              <p>Blog</p>
+            </div>
+            <div className="Contact">
+              <h2 className="mb-5">Contact</h2>
+              <p className='ptag'>Help & Support</p>
+              <p>Partner with us</p>
+              <p>Ride with us</p>
+            </div>
+            <div className="legal">
+              <h2 className="mb-5">Legal</h2>
+              <p>Terms & Conditions</p>
+              <p>Refund & Cancellation</p>
+              <p>Privacy Policy</p>
+              <p>Cookie Policy</p>
+            </div>
+          </div>
+          <div className="footer-right">
+            <h2 className="mb-5">Follow us</h2>
+            <div className="social-icons mb-5">
+              <img src="./img/instagram-icon.svg" alt="instagram-icon" />
+              <img src="./img/faceBook-icon.png" alt="faceBook-icon" />
+              <img src="./img/twitter-icon.png" alt="twitter-icon" />
+            </div>
+            <h3 className="mb-5">Receive exclusive offers in your mailbox</h3>
+            <form   className="d-flex flex-wrap flex-row gap-3">
+              <img className="mail-icon" src="./img/mail-icon.svg" alt="mail-icon" />
+              <input 
+                className="input-email"
+                placeholder="        Enter Your email"
+                type="email"
+                name="email"
+                id="email"
+              />
+              <button onClick={emailSend} className="footer-btn mb-5" >Send Me</button>
+            </form>
+          </div>
+        </div>
+        <img src="./img/HR.svg" alt="HR-line" className="img-fluid" />
+        <div className="rights d-flex justify-content-between con mb-5">
+          <p className="p1">
+            All rights Reserved
+            <img src="./img/copy-right-symble.svg" alt="copy-right-symble" />
+          </p>
+          <p className="p2">
+            <img src="./img/Made with  by.png" alt="yellow-heart" />
+            <span>Ahsan</span>
+          </p>
+        </div>
       </div>
-  
-      <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li className="ms-3"><a className="text-muted" href="/"><svg className="bi" width="24" height="24"><use ></use></svg></a></li>
-        <li className="ms-3"><a className="text-muted" href="/"><svg className="bi" width="24" height="24"><use ></use></svg></a></li>
-        <li className="ms-3"><a className="text-muted" href="/"><svg className="bi" width="24" height="24"><use></use></svg></a></li>
-      </ul>
     </footer>
-  </div>
-  </div>
+
+
+
+
   )
 }
