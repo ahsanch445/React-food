@@ -27,7 +27,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div >
+    <div>
       <div>
         <Navbar />
       </div>
@@ -38,17 +38,17 @@ export default function Home() {
             <div class=" carousel-caption  " style={{ zIndex: "9" }}>
               <div className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
                 <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
-                <button className="btn text-white bg-danger" onClick={() => { setSearch('') }}>X</button>
+                <button style={{  backgroundColor: "#ff0157",height:"50px", marginTop:"12px"}} className="btn text-white " onClick={() => { setSearch('') }}>X</button>
               </div>
             </div>
             <div className="carousel-item active" >
-              <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100  " style={{ filter: "brightness(60%)" }} alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 " style={{ filter: "brightness(60%)" }} alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100 " style={{ filter: "brightness(60%)" }} alt="..." />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -68,7 +68,7 @@ export default function Home() {
               return (
                 // justify-content-center
                 <div className='row mb-3'>
-                  <div key={data.id} className='fs-3 m-3'>
+                  <div key={data.id} className='fs-2 m-3 fw-bold'>
                     {data.CategoryName}
                   </div>
                   <hr id="hr-success" style={{ height: "4px", backgroundImage: "-webkit-linear-gradient(left,rgb(0, 255, 137),rgb(0, 0, 0))" }} />
@@ -76,7 +76,7 @@ export default function Home() {
                     (items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
                     .map(filterItems => {
                       return (
-                        <div  key={filterItems.id} className='col-12 col-md-6 col-lg-4'>
+                        <div   style={{backgroundColor:"#dadada"}}   key={filterItems.id} className='col-12 col-md-6 col-lg-3'>
                           {console.log(filterItems.url)}
                           <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} ></Card>
                         </div>
@@ -87,6 +87,7 @@ export default function Home() {
             })
             : ""}
       </div>
+     
       <Footer />
     </div>
 

@@ -10,7 +10,7 @@ import { useNavigate, Link } from 'react-router-dom'
 const Register = () => {
   let navigate = useNavigate()
 
-  // Initialize state to manage form data
+
   const [formData, setFormData] = useState({
     fullname: '',
     username: '',
@@ -61,7 +61,7 @@ const Register = () => {
 
     <div className="main">
         <div className="wrapper">
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
            
             <div className="input">

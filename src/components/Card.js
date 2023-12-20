@@ -19,11 +19,7 @@ export default function Card(props) {
   let priceOptions = Object.keys(options);
   let foodItem = props.item;
   const dispatch = useDispatchCart();
-  const handleClick = () => {
-    if (!localStorage.getItem("user")) {
-      navigate("/login")
-    }
-  }
+ 
   const handleQty = (e) => {
     setQty(e.target.value);
   }
@@ -57,10 +53,14 @@ export default function Card(props) {
     await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
 
 
-    // setBtnEnable(true)
-
+   
+  
   }
-
+  const handleClick = () => {
+    if (!localStorage.getItem("user")) {
+      navigate("/login")
+    }
+  }
   useEffect(() => {
     setSize(priceRef.current.value)
   }, [])
@@ -73,38 +73,42 @@ export default function Card(props) {
   // totval += finalPrice;
   // console.log(totval)
   return (
-<div >
+<div    >
 
-<div className='mb-3'><div className="card object-cover "  style={{"width":"18rem","maxHeight":"361px"}}>
-    <img style={{height:"170px",objectFit:"fill"}} src={foodItem.img} class="card-img-top " alt="..."/>
-    <div className="card-body">
-      <h5 className="card-title">{foodItem.name}</h5>
+<div   style={{backgroundColor:"#dadada"}}  className='mb-3'><div className="card object-cover "  style={{"width":"14rem","maxHeight":"361px"}}>
+    <img   style={{height:"140px",objectFit:"fill",backgroundColor:"#dadada"}} src={foodItem.img} class="card-img-top " alt="..."/>
+    <div style={{backgroundColor:"#dadada"}} className="card-body">
+      <h5 style={{backgroundColor:"#dadada"}} className="card-title">{foodItem.name}</h5>
     
     
   
     </div>
   
-    <div className="container w-100">
-      <select className='m-2  h-100 bg-success' onClick={handleClick} onChange={handleQty}  > 
+    <div style={{backgroundColor:"#dadada"}} className="container w-100">
+      <select  style={{ background: "#ff0157", color: "#fff", opacity:"0.9"}} className='m-2 fw-bold h-100' onChange={handleQty}  > 
   {Array.from(Array(6),(e,i)=>{
     return <option value={i+1} key={i+1}>{i+1}</option>
   })}
   
       </select>
-    <select className="m-2  h-100 bg-success"  ref={priceRef} onClick={handleClick} onChange={handleOptions}>
+    <select style={{ background: "#ff0157", color: "#fff",opacity:"0.9"}} className="m-2   h-100"  ref={priceRef} onChange={handleOptions}>
       {priceOptions.map((data)=>(
 <option key={data} value={data}>{data}</option>
       )
        
       )}
     </select>
-<div className=' d-inline-block fw-bold'>Rs{finalPrice }/</div>
+<div style={{backgroundColor:"#dadada"}} className=' d-inline-block fw-bold'>Rs{finalPrice }/</div>
 
   </div>
-  <hr />
 
-  <button onClick={ handleAddToCart} style={{fontWeight:"600",height:"40px",justifyContent:"center ",width:"50%"}} className='btn btn-success ms-1 me-5 text-center  mb-1 text-black'>Add to Cart</button>
- 
+<div style={{backgroundColor:"#dadada",paddingTop:"10px"}} >
+  <button  onClick={ function(){
+    handleClick()
+    handleAddToCart()
+    
+  }} style={{fontWeight:"600",height:"40px",justifyContent:"center ",width:"55%",  background: "#ff0157", color: "#fff",opacity:"0.9"}} className='btn ms-1 me-5 text-center  mb-1'>Add to Cart</button>
+ </div>
   </div></div></div>
   )
 }

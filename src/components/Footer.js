@@ -1,13 +1,18 @@
-import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style/footer.css"
 import { useNavigate } from 'react-router-dom';
-
+import React, { useRef } from 'react';
 export default function Footer() {
   let router = useNavigate()
-  function emailSend(){
+  const emailInputRef = useRef(null);
+  function emailSend(e){
+    e.preventDefault(); 
     router("/")
+    emailInputRef.current.value = '';
   }
+  
+
+
   return (
 
 
@@ -48,13 +53,14 @@ export default function Footer() {
             <form   className="d-flex flex-wrap flex-row gap-3">
               <img className="mail-icon" src="./img/mail-icon.svg" alt="mail-icon" />
               <input 
+              ref={emailInputRef}
                 className="input-email"
                 placeholder="        Enter Your email"
                 type="email"
                 name="email"
                 id="email"
               />
-              <button onClick={emailSend} className="footer-btn mb-5" >Send Me</button>
+              <button onClick={emailSend}  type="submit"  className="footer-btn mb-5" >Send Me</button>
             </form>
           </div>
         </div>
