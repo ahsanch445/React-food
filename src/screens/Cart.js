@@ -16,7 +16,7 @@ export default function Cart() {
 
 
   const handleCheckOut = async () => {
-    let username = localStorage.getItem("username");
+    let email = localStorage.getItem("email");
     let response = await fetch("https://food-api-theta.vercel.app/orderData", {
       
       method: 'POST',
@@ -25,14 +25,14 @@ export default function Cart() {
       },
       body: JSON.stringify({
         order_data: data,
-        username: username,
+        email: email,
         order_date: new Date().toDateString()
       })
     });
-    dispatch({ type: "DROP" })
+  
     console.log("JSON RESPONSE:::::", response.status)
     if (response.status === 200) {
-   
+      dispatch({ type: "DROP" })
     }
   }
 

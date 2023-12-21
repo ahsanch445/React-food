@@ -36,7 +36,7 @@ export default function Home() {
 
           <div style={{height:"400px"}}  className="carousel-inner " id='carousel'>
             <div class=" carousel-caption  " style={{ zIndex: "9" }}>
-              <div className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
+              <div className=" d-flex justify-content-center"> 
                 <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
                 <button style={{  backgroundColor: "#ff0157",height:"50px", marginTop:"12px"}} className="btn text-white " onClick={() => { setSearch('') }}>X</button>
               </div>
@@ -61,12 +61,12 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className='container'> {/* boootstrap is mobile first */}
+      <div className='container'>
         {
           foodCat !== []
             ? foodCat.map((data) => {
               return (
-                // justify-content-center
+          
                 <div className='row mb-3'>
                   <div key={data.id} className='fs-2 m-3 fw-bold'>
                     {data.CategoryName}

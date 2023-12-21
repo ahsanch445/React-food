@@ -27,11 +27,10 @@ const Register = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send registration data to your server using axios
+    
       const response = await axios.post('https://food-api-theta.vercel.app/register', formData);
 
     
@@ -43,8 +42,7 @@ const Register = () => {
         navigate("/login")
 
 
-        const username = formData.username;
-        localStorage.setItem('username', username  );
+
 
 
       } else {

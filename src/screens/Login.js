@@ -30,8 +30,9 @@ const Login = () => {
         console.log('User data:', response.data);
         localStorage.setItem('user', JSON.stringify(response.data));
         navigate("/")
-        // useEffect for client-side operations
-      
+    
+        const email = formData.email;
+        localStorage.setItem('email', email  );
 
       } else {
         console.error('Registration failed');
@@ -48,7 +49,7 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <h1>Login</h1>
             <div className="input">
-              <input type="username" name='username' value={formData.username} onChange={handleChange} placeholder="Username" />
+              <input type="username" name='email' value={formData.email} onChange={handleChange} placeholder="Email" />
             </div>
             <div className="input">
               <input type="password" name='password' value={formData.password} onChange={handleChange} placeholder="Password"/>
