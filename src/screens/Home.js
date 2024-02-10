@@ -8,9 +8,6 @@ import About from '../components/About'
  import "../components/style/Home.css"
 export default function Home() {
 
-const menu =useRef()
-console.log(menu)
-
 
   return (
     <div className='bg-[black]'>

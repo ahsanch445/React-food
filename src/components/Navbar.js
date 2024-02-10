@@ -109,7 +109,7 @@ export default function Navbar(props) {
   <div  style={{border:"1px solid white"}} className='w-[5vw] mt-1'></div>
   <div  style={{border:"1px solid white"}} className='w-[5vw] mt-1'></div>
 </div>
-{localStorage.getItem("user")?<div className='flex justify-end  w-[13vw] data' >
+{localStorage.getItem("user")?<div className=' nav3 flex justify-end  w-[14vw] data' >
     
 <SearchIcon  onClick={toggleSearch} className=' me-[3vw] cursor-pointer' />
 {searchVisible && <SearchInput />}

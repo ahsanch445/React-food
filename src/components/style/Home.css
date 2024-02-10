@@ -70,4 +70,17 @@ width: 8vw;
     margin-right: 10vw;
     gap: 3vw;
 }
+.nav3{
+    width: 24vw;
+}
+.Card3{
+    width: 16vw;
+}
+.Card3:hover{
+    width: 19vw;
+
+}
+#checkbtn{
+    width: 15vw;
+}
 }

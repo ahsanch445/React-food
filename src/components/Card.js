@@ -34,8 +34,7 @@ export default function Card(props) {
         break;
       }
     }
-    console.log(food)
-    console.log(new Date())
+   
     if (food !== []) {
       if (food.size === size) {
         await dispatch({ type: "UPDATE", id: foodItem._id, price: finalPrice, qty: qty })
@@ -100,7 +99,7 @@ export default function Card(props) {
 </div>
 <button onClick={ function(){
     handleClick()
-    handleAddToCart()}} className=' hover:h-[4.3vw] rounded-sm hover:w-[15vw] hover transition duration-300 ease-in hover:ease-out  Card-Btn bg-yellow-500 w-[13vw] mt-[1vw] h-[4vw] text-[#070606] fw-bold text-[1.5vw] '>Add To Cart</button>
+    handleAddToCart()}} className=' Card3 hover:h-[4.3vw] rounded-sm hover:w-[15vw] hover transition duration-300 ease-in hover:ease-out  Card-Btn bg-yellow-500 w-[13vw] mt-[1vw] h-[4vw] text-[#070606] fw-bold text-[1.5vw] '>Add To Cart</button>
   </div>
 
 </div>

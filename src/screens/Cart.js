@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../components/style/Home.css"
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 import { BsFillTrashFill } from 'react-icons/bs';
 
