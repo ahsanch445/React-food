@@ -2,22 +2,21 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatchCart, useCart } from './ContextReducer'
-// import { Dropdown, DropdownButton } from 'react-bootstrap';
+import "./style/Home.css"
 export default function Card(props) {
-  let data = useCart();
+  let {state} = useCart();
 
   let navigate = useNavigate()
   const [qty, setQty] = useState(1)
   const [size, setSize] = useState("")
   const priceRef = useRef();
-  // const [btnEnable, setBtnEnable] = useState(false);
-  // let totval = 0
-  // let price = Object.values(options).map((value) => {
-  //   return parseInt(value, 10);
-  // });
-  let options = props.options;
-  let priceOptions = Object.keys(options);
-  let foodItem = props.item;
+  const [btnEnable, setBtnEnable] = useState(false);
+  let totval = 0
+  let options = props?.options;
+
+
+  let priceOptions = Object?.keys(options);
+  let foodItem = props?.item;
   const dispatch = useDispatchCart();
  
   const handleQty = (e) => {
@@ -28,7 +27,7 @@ export default function Card(props) {
   }
   const handleAddToCart = async () => {
     let food = []
-    for (const item of data) {
+    for (const item of state) {
       if (item.id === foodItem._id) {
         food = item;
 
@@ -69,47 +68,44 @@ export default function Card(props) {
   // checkBtn();
   //   },[data])
 
-  let finalPrice = qty * parseInt(options[size]);   //This is where Price is changing
-  // totval += finalPrice;
-  // console.log(totval)
-  return (
-<div    >
 
-<div   style={{backgroundColor:"#dadada"}}  className='mb-3'><div className="card object-cover "  style={{"width":"14rem","maxHeight":"361px"}}>
-    <img   style={{height:"140px",objectFit:"fill",backgroundColor:"#dadada"}} src={foodItem.img} class="card-img-top " alt="..."/>
-    <div style={{backgroundColor:"#dadada"}} className="card-body">
-      <h5 style={{backgroundColor:"#dadada"}} className="card-title">{foodItem.name}</h5>
-    
-    
+  let finalPrice = qty * parseInt(options[size]);   //This is where Price is changing
+  totval += finalPrice
   
-    </div>
-  
-    <div style={{backgroundColor:"#dadada"}} className="container w-100">
-      <select  style={{ background: "#ff0157", color: "#fff", opacity:"0.9"}} className='m-2 fw-bold h-100' onChange={handleQty}  > 
-  {Array.from(Array(6),(e,i)=>{
-    return <option value={i+1} key={i+1}>{i+1}</option>
+  return (
+<section id='menu' >
+<div style={{border:"1.5px solid yellow"}} className=' d-flex   justify-center px-[5vw] py-[4vw]  hover:bg-[#3B2C00]  h-[30vw] w-[45vw] Card'>
+  <div   style={{textAlign:"center"}} >
+  <img style={{marginLeft:"1vw"}}  className=' p-auto rounded-sm object-cover h-[10vw] w-[17vw] Card-Image ' src={foodItem.img}/>
+<h1 className=' text-[2vw] Card-Text mt-[1vw]' style={{color:"white"}}>{foodItem.name}</h1>
+<div className='flex justify-around items-center Card-Price-Row '>
+  <div  className=' Card-Price text-[1.4vw] text-white '>
+    Rs {finalPrice }
+  </div>
+ <div>
+ <select    style={{ background: "yellow", color: "#000", opacity:"0.9"}} className=' Card-Iteams-Number me-1 fw-bold h-15   text-[1.4vw]   w-[4vw]  h-15' onChange={handleQty}  > 
+  {Array?.from(Array(6),(e,i)=>{
+    return <option  value={i+1} key={i+1}>{i+1}</option>
   })}
   
       </select>
-    <select style={{ background: "#ff0157", color: "#fff",opacity:"0.9"}} className="m-2   h-100"  ref={priceRef} onChange={handleOptions}>
+      <select style={{ background: "yellow", letterSpacing:"-0.09vw",color: "#000",opacity:"0.9"}} className=" Card-Iteams-Size  text-[1.4vw]   w-[7vw]  h-15"  ref={priceRef} onChange={handleOptions}>
       {priceOptions.map((data)=>(
-<option key={data} value={data}>{data}</option>
+<option  key={data} value={data}>{data}</option>
       )
        
       )}
     </select>
-<div style={{backgroundColor:"#dadada"}} className=' d-inline-block fw-bold'>Rs{finalPrice }/</div>
-
+ </div>
+</div>
+<button onClick={ function(){
+    handleClick()
+    handleAddToCart()}} className=' hover:h-[4.3vw] rounded-sm hover:w-[15vw] hover transition duration-300 ease-in hover:ease-out  Card-Btn bg-yellow-500 w-[13vw] mt-[1vw] h-[4vw] text-[#070606] fw-bold text-[1.5vw] '>Add To Cart</button>
   </div>
 
-<div style={{backgroundColor:"#dadada",paddingTop:"10px"}} >
-  <button  onClick={ function(){
-    handleClick()
-    handleAddToCart()
-    
-  }} style={{fontWeight:"600",height:"40px",justifyContent:"center ",width:"55%",  background: "#ff0157", color: "#fff",opacity:"0.9"}} className='btn ms-1 me-5 text-center  mb-1'>Add to Cart</button>
- </div>
-  </div></div></div>
+</div>
+
+</section>
   )
 }
 //

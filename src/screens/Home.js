@@ -1,91 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import Card from '../components/Card'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
+import { useCart } from '../components/ContextReducer'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import About from '../components/About'
+ import Card from '../screens/Card/Card'
+ import "../components/style/Home.css"
 export default function Home() {
-  const [foodCat, setFoodCat] = useState([])
-  const [foodItems, setFoodItems] = useState([])
-  const [search, setSearch] = useState('')
-  const loadFoodItems = async () => {
-    let response = await fetch("https://food-api-theta.vercel.app/foodData", {
-    
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
 
-    });
-    response = await response.json()
-   
-    setFoodItems(response[0])
-    setFoodCat(response[1])
-  }
+const menu =useRef()
+console.log(menu)
 
-  useEffect(() => {
-    loadFoodItems()
-  }, [])
 
   return (
-    <div>
-      <div>
-        <Navbar />
-      </div>
-      <div style={{height:"400px"}}>
-        <div style={{height:"400px"}}  id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel">
+    <div className='bg-[black]'>
+      <div >
+      <Navbar />
+        <div className=' relative h-screen w-full bg-black overflow-hidden'>
+     <div className="absolute z-12 w-full top-0 ">
+      <img className=' w-[100%] object-cover  h-screen ' style={{ filter:"brightness(50%)",backgroundSize:"contain"}} src='https://codingcirculate-restaurant-design.on.fleek.co/static/media/home-img.965e18e60a1521e7e1af'/>
 
-          <div style={{height:"400px"}}  className="carousel-inner " id='carousel'>
-            <div class=" carousel-caption  " style={{ zIndex: "9" }}>
-              <div className=" d-flex justify-content-center"> 
-                <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
-                <button style={{  backgroundColor: "#ff0157",height:"50px", marginTop:"12px"}} className="btn text-white " onClick={() => { setSearch('') }}>X</button>
-              </div>
-            </div>
-            <div className="carousel-item active" >
-              <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100  " style={{ filter: "brightness(60%)" }} alt="..." />
-            </div>
-            <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 " style={{ filter: "brightness(60%)" }} alt="..." />
-            </div>
-            <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100 " style={{ filter: "brightness(60%)" }} alt="..." />
-            </div>
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+     </div>
+     <div id='text-Response' className=" absolute z-9 left-[5vw]  top-[20vw]">
+  <h1 style={{textAlign:"start"}} className=' text-[6vw] text-white fw-bold fw-bold1 text-arial'>
+  FRESH <span className='text-[yellow]'>FOOD IN THE</span> <br/><span className='text'>MORNING</span>
+  </h1>
+  <p style={{opacity:"0.7"}} className='w-[65%] text-[1.5vw] text-white'>
+  Revitalize your mornings with our selection of farm-fresh delights, delivering wholesome goodness to your doorstep.
+  </p>
+  <button style={{fontFamily:"arial",fontWeight:"600"}} className=' tracking-tighter hover transition duration-300 ease-in hover:ease-out h-[4vw] w-[13vw] text-[1.6vw] bg-[yellow] hover:w-[15vw] '>Get Your Now</button>
+</div>
         </div>
-      </div>
-      <div className='container'>
-        {
-          foodCat !== []
-            ? foodCat.map((data) => {
-              return (
-          
-                <div className='row mb-3'>
-                  <div key={data.id} className='fs-2 m-3 fw-bold'>
-                    {data.CategoryName}
-                  </div>
-                  <hr id="hr-success" style={{ height: "4px", backgroundImage: "-webkit-linear-gradient(left,rgb(0, 255, 137),rgb(0, 0, 0))" }} />
-                  {foodItems !== [] ? foodItems.filter(
-                    (items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
-                    .map(filterItems => {
-                      return (
-                        <div   style={{backgroundColor:"#dadada"}}   key={filterItems.id} className='col-12 col-md-6 col-lg-3'>
-                          {console.log(filterItems.url)}
-                          <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} ></Card>
-                        </div>
-                      )
-                    }) : <div> No Such Data </div>}
-                </div>
-              )
-            })
-            : ""}
+        
+        <div>
+          <About/>
+        </div>
+
+<Card />
+        
       </div>
      
       <Footer />

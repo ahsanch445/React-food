@@ -4,12 +4,12 @@ import { useCart, useDispatchCart } from '../components/ContextReducer';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 export default function Cart() {
-  let data = useCart();
+  let {state} = useCart();
   let dispatch = useDispatchCart();
-  if (data.length === 0) {
+  if (state.length === 0) {
     return (
-      <div>
-        <div className='m-5 w-100 text-center fs-3 text-white'>The Cart is Empty!</div>
+      <div className='flex items-center justify-center'> 
+        <div className='m-5 w-100 text-center text-[3vw] text-white'>The Cart is Empty!</div>
       </div>
     )
   }
@@ -24,7 +24,7 @@ export default function Cart() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        order_data: data,
+        order_data: state,
         email: email,
         order_date: new Date().toDateString()
       })
@@ -36,16 +36,16 @@ export default function Cart() {
     }
   }
 
-  let totalPrice = data.reduce((total, food) => total + food.price, 0)
+  let totalPrice = state.reduce((total, food) => total + food.price, 0)
   return (
-    <div>
+    <div >
 
-      {console.log(data)}
+     
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
         <table className='table table-hover '>
-          <thead style={{color:" #ff0157"}} className=' fs-4'>
-            <tr>
-              <th scope='col' >#</th>
+          <thead  className=' text-yellow-500 fs-4'>
+            <tr className='text-[2vw]'>
+              <th  scope='col' >#</th>
               <th scope='col' >Name</th>
               <th scope='col' >Quantity</th>
               <th scope='col' >Option</th>
@@ -54,8 +54,8 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {data.map((food, index) => (
-              <tr>
+            {state.map((food, index) => (
+              <tr className='text-[2vw]'>
                 <th scope='row' >{index + 1}</th>
                 <td className='text-white'>{food.name}</td>
                 <td className='text-white'>{food.qty}</td>
@@ -65,9 +65,9 @@ export default function Cart() {
             ))}
           </tbody>
         </table>
-        <div><h1 className='fs-2 text-white'>Total Price: {totalPrice}/-</h1></div>
+        <div><h1 className='text-[3vw] text-white'>Total Price: {totalPrice}/-</h1></div>
         <div>
-          <button id="checkbtn" className='btn  mt-5 ' onClick={handleCheckOut} > Check Out </button>
+          <button style={{fontSize:"2vw"}} id="checkbtn"  className=' p-1 h-[5vw] w-[12vw] btn  mt-5 ' onClick={handleCheckOut} > Check Out </button>
         </div>
       </div>
 

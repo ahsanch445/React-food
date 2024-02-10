@@ -5,11 +5,11 @@ const MODAL_STYLES = {
   position: 'fixed',
   top: '50%',
   left: '50%',
-  backgroundColor: '#090d12',
+  backgroundColor: '#13131A',
   transform: 'translate(-50%, -50%)',
   zIndex: 1000,
-  height: '90%',
-  width: '90%'
+  minHeight: '50%',
+ width:"69%"
 }
 
 const OVERLAY_STYLES = {
@@ -28,7 +28,7 @@ export default function Modal({ children, onClose }) {
     <>
       <div style={OVERLAY_STYLES} />
       <div style={MODAL_STYLES}>
-        <button className='btn text-white fw-bold fs-4' style={{ marginLeft: "90%", marginTop: "-35px", background:" #ff0157",opacity:"0.8"}} onClick={onClose}> X </button>
+        <button className='bg-[#f0da15] btn  fw-bold text-[3vw] ' style={{  backgroundColor:"#f0da15",marginLeft: "90%", marginTop: "-35px", opacity:"0.8"}} onClick={onClose}> X </button>
         {children}
       </div>
     </>,

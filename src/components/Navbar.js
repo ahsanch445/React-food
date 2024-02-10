@@ -1,13 +1,37 @@
 /* eslint-disable react/jsx-no-undef */
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { Badge } from 'react-bootstrap';
 import { useCart } from './ContextReducer';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
-export default function Navbar(props) {
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import SearchIcon from '@mui/icons-material/Search';
+import "./style/Nav.css"
+import "./style/Home.css"
 
+const SearchInput = () => {
+    
+    const  {Search,setSearch}=useCart() 
+    return (
+      <div className='absolute top-[100%] right-[13vw]  z-50'>
+       < input value={Search} onChange={(e)=> setSearch(e.target.value)}
+        type="text"
+        placeholder="Search..."
+        cla className="transition-transform duration-300 ease-in-out transform scale-100 focus:scale-105 px-2 py-1 my-2 border rounded-md"
+      />
+      
+    
+      </div>
+    );
+
+
+  };
+ 
+export default function Navbar(props) {
+    const [isOpen, setisOpen] = useState(false)
+    const [searchVisible, setSearchVisible] = useState(false); // Add state for se
     const [cartView, setCartView] = useState(false)
     localStorage.setItem('temp', "first")
     let navigate = useNavigate();
@@ -21,48 +45,88 @@ export default function Navbar(props) {
         setCartView(true)
     }
 
-    const items = useCart();
+    const {state} = useCart();
+    const toggleSearch = () => {
+        setSearchVisible(!searchVisible);
+      };
+      const hamBargar = ()=>{
+        setisOpen(!isOpen)
+          }
+
+  
     return (
-        <div>
-            <nav id='navid' className="navbar navbar-expand-lg position-sticky"
-                style={{ boxShadow: "0px 10px 20px black", filter: 'blur(20)', position: "fixed", zIndex: "10", width: "100%" }}>
-                <div className="container-fluid">
-                    <Link style={{ color: "#fff"}}  className=" navbar-brand fs-1 fst-italic" to="/">GoFood</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link style={{ color: "#fff",fontWeight: "600",opacity:"0.8"}}  className="nav-link fs-5 mx-3 active" aria-current="page" to="/">Home</Link>  {/* index.css - nav-link color white */}
-                            </li>
-                            {(localStorage.getItem("user")) ?
-                                <li className="nav-item">
-                                    <Link style={{ color: "#fff",fontWeight: "600",opacity:"0.8"}}  className="nav-link fs-5 mx-3 active" aria-current="page" to="/myorder" >My Orders</Link>  {/* index.css - nav-link color white */}
-                                </li> : ""}
-                        </ul>
-                        {(!localStorage.getItem("user")) ?
-                            <form className="d-flex">
-                                <Link style={{ color: "#fff",fontWeight: "600"}}  className=" nav-link fs-5 active " to="/login">Login</Link>
-                                <Link style={{ color: "#fff",fontWeight: "600"}}  className=" nav-link fs-5 mx-3 active" to="/signup">Signup</Link>
-                            </form> :
-                            <div>
+        <div id='nav-Height'  style={{position:"absolute",padding:" 0.9vw 7vw",display:"flex",borderBottom:"solid yellow 1px"}} className='bg-black sticky top-0 right-0 z-10 left-0 flex items-center justify-between text-white p-[12vw] w-full'>
+           <div   className='none'>
+      
+            <img  className='Nav-Img h-[7vw]'  src='https://codingcirculate-restaurant-design.on.fleek.co/static/media/logo.bbdaaa34654aff804cc3.png' />
+           </div>
+<div  className='gap-[2vw] link flex' style={{textDecoration:"none",listStyle:"none"}}>
+    
+    <li><Link   className='text-[#ffff]  no-underline atag hoverclass' to="/">Home</Link></li>
+    <li><Link className='text-[#ffff]  no-underline atag' to="/about">About</Link></li>
+    <li><Link to="/menu" smooth={true} duration={500} className='text-[#ffff]  no-underline atag'>Menu</Link></li>
+    {
+        localStorage.getItem("user")? <li><Link  className='text-[#ffff] no-underline  atag' to='/myorder'>My Orders </Link></li>:"" 
+    }
+    <li><Link className='text-[#ffff] no-underline  atag' to="/contact">Contact Us</Link></li>
+    
+  
 
-                                <div id='mybtn2'  className="btn bg-white text-danger mx-2 " onClick={loadCart}>
-                                    <div color="secondary" badgeContent={items.length} >
-                                 
-                                    </div>
-                                 
-                                    Cart{" "}
-                                    <Badge pill bg='danger'>{items.length}</Badge>
-                                </div>
+</div>
+{
+    isOpen?<div className='bg-black absolute z-auto p-[4vw] gap-4 h-[96vh] flex flex-col w-[80%] top-100 right-[0%] '>
+    <Link   className='text-[#ffff]   no-underline atag hoverclass' to="/">Home</Link>
+    <Link className='text-[#ffff]  no-underline atag' to="/about">About</Link>
+    <Link to="/menu" smooth={true} duration={500} className='text-[#ffff]  no-underline atag'>Menu</Link>
+    
+    {
+            localStorage.getItem("user")?<Link  className='text-[#ffff] no-underline  atag' to='/myorder'>My Orders </Link>:
+    
+    
+    <form className="flex flex-col gap-[4vw]">
+                                    <Link style={{fontWeight: "500"}} className=' me-[2vw] text-[#ffff] no-underline  atag1' to="/login">Login</Link>
+                                    <Link style={{fontWeight: "500"}} className='text-[#ffff] no-underline  atag1'  to="/signup">Signup</Link>
+                                </form> 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            
+            }
+            
+            
+    </div>:""
+}
 
-                                {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
+<div   onClick={hamBargar} className=' absolute right-4 nav2 '>
+  <div style={{border:"1px solid white"}} className='w-[5vw]'></div>
+  <div  style={{border:"1px solid white"}} className='w-[5vw] mt-1'></div>
+  <div  style={{border:"1px solid white"}} className='w-[5vw] mt-1'></div>
+</div>
+{localStorage.getItem("user")?<div className='flex  data' >
+    
+<SearchIcon  onClick={toggleSearch} className='me-[3vw] cursor-pointer' />
+{searchVisible && <SearchInput />}
+        
+<div className="cursor-pointer" onClick={loadCart}>  
+ <ShoppingCartIcon  />
+ {state.length !=0? <Badge className='' style={{color:"black",boxShadow: '0 2px 4px rgba(0, 0, 0, 0.4)'}}  pill bg='warning'>{state.length}</Badge> :""}
+ </div>
 
-                                <button id='mybtn' onClick={handleLogout} className="btn bg-white text-danger" >Logout</button></div>}
-                    </div>
-                </div>
-            </nav>
+    {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
+
+</div>  : <div><form id='data2' className="d-flex">
+                                <Link style={{fontWeight: "500"}} className=' me-[2vw] text-[#ffff] no-underline  atag1' to="/login">Login</Link>
+                                <Link style={{fontWeight: "500"}} className='text-[#ffff] no-underline  atag1'  to="/signup">Signup</Link>
+                            </form> </div>}
+
+
         </div>
     )
 }

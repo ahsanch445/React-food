@@ -1,0 +1,18 @@
+.atag:hover{
+    color: yellow;
+        position: relative;
+        border-bottom: 0.7px solid yellow;
+        transition: border-bottom-color 2s ease-in;
+       
+    }
+.atag1:hover{
+    color: yellow;
+        position: relative;
+        
+        transition: border-bottom-color 2s ease-in;
+       
+    }
+
+    .nav2{
+        display:"none";
+        }

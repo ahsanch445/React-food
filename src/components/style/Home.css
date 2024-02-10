@@ -1,0 +1,73 @@
+
+
+.nav2{
+    display:none;
+   
+    }
+    .hover:hover{
+        transition: 0.3s ease-in-out;
+        letter-spacing: 1px;
+      
+    }
+@media (max-width: 767px) {
+  #text-Response{
+top: 40%;
+left: 7%;
+
+  }
+.fw-bold1{
+    font-size: 8vw;
+    text-align: end;
+   
+}
+.Card{
+height: 45vw;
+width: 70vw;
+}
+.Card-Image{
+    height: 15vw;
+    width: 30vw;
+}
+.Card-Text{
+    margin-top: 3vw;
+    font-size: 2.5vw;
+}
+.Card-Btn{
+    width: 20vw;
+    height: 6vw;
+    font-size: 2.4vw;
+}
+.Card-Price-Row{
+    gap: 3vw;
+justify-content: center;
+}
+.Card-Price{
+    margin-top: 1vw;
+}
+.Card-Iteams-Number{
+width: 7vw;
+}
+.Card-Iteams-Size{
+width: 8vw;
+}
+.link{
+   display: none;
+
+}
+.nav2{
+    display:block ;
+}
+.data{
+    margin-right: 9vw;
+}
+#nav-Height{
+    height: 25vw;
+}
+.Nav-Img {
+    height: 15vw;
+}
+#data2{
+    margin-right: 10vw;
+    gap: 3vw;
+}
+}

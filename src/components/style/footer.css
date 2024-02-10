@@ -224,6 +224,7 @@ footer {
     .footer-btn {
       width: 100%;
       margin-top: 10px;
+     background-color: #fff;
     }
     .input-email {
       width: 100%;
@@ -237,7 +238,14 @@ footer {
   }
   @media (max-width: 767px) {
     .footer-btn {
-        width: 250px;
+      width: 220px;
         margin-top: 10px;
+      }
+      .input-email {
+        text-align: start;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 220px;
       }
   }

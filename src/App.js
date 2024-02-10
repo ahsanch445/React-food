@@ -3,7 +3,7 @@ import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css'  //npm
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import Home from './screens/Home';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,8 +14,11 @@ import Login from './screens/Login';
 import Signup from "./screens/SignUp.js";
 import { CartProvider } from './components/ContextReducer';
 import MyOrder from './screens/MyOrder';
+import About from './components/About.js';
 
-
+import Footer from './components/Footer.js';
+import Home from './screens/Home';
+import Card from "./screens/Card/Card.js";
 function App() {
   return (
     <CartProvider>
@@ -26,6 +29,11 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/myorder" element={<MyOrder />} />
+            <Route exact path="/about" element={<About />} />
+           
+            
+            <Route exact path="/menu" element={< Card/>} />
+            <Route exact path="/contact" element={<Footer />} />
           </Routes>
         </div>
       </Router>

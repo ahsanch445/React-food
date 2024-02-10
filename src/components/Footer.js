@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style/footer.css"
 import { useNavigate } from 'react-router-dom';
 import React, { useRef } from 'react';
+import Navbar from './Navbar';
 export default function Footer() {
   let router = useNavigate()
   const emailInputRef = useRef(null);
@@ -14,11 +15,12 @@ export default function Footer() {
 
 
   return (
+<>
+<Navbar/>
 
-
-<footer>
-      <div className="  footer-coloum d-flex flex-column align-items-center">
-        <img src="./img/HR.svg" alt="HR-line" className="hr-first img-fluid" />
+<footer className='bg-[black] '>
+      <div id='data' className="footer-coloum d-flex flex-column align-items-center">
+      <hr  style={{ height: "14px" }} />
         <div className=" footer-two container-fluid d-flex flex-wrap">
           <div id="footer-left" className=" footer-left d-flex flex-wrap ">
             <div className=" company">
@@ -54,29 +56,35 @@ export default function Footer() {
               <img className="mail-icon" src="./img/mail-icon.svg" alt="mail-icon" />
               <input 
               ref={emailInputRef}
-                className="input-email"
+                className="input-email Input-Footer"
                 placeholder="        Enter Your email"
                 type="email"
                 name="email"
                 id="email"
               />
-              <button onClick={emailSend}  type="submit"  className="footer-btn mb-5" >Send Me</button>
+              <button onClick={emailSend}  type="submit "  className="w-full footer-btn mb-5" >Send Me</button>
             </form>
           </div>
         </div>
-        <img src="./img/HR.svg" alt="HR-line" className="img-fluid" />
-        <div className="rights d-flex justify-content-between con mb-5">
+       <div id="data" className='w-full '>
+        <div  className="rights d-flex justify-content-between con mb-5">
           <p className="p1">
             All rights Reserved
-            <img src="./img/copy-right-symble.svg" alt="copy-right-symble" />
+           
           </p>
+          <img src="./img/copy-right-symble.svg" alt="copy-right-symble" />
           <p className="p2">
             <img src="./img/Made with  by.png" alt="yellow-heart" />
             <span>Ahsan</span>
           </p>
         </div>
+
+       </div>
       </div>
     </footer>
+
+</>
+
 
 
 
