@@ -1,17 +1,15 @@
-
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'
+import { useContext, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import "./login.css"
-
-
+import "./login.css";
+import { useCart } from '../components/ContextReducer';
 
 const Login = () => {
-
-  let navigate = useNavigate()
+  const { setEmail } = useCart();
+  let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    username: '',
+    username: '', // Change 'email' to 'username'
     password: ''
   });
 
@@ -26,16 +24,15 @@ const Login = () => {
       const response = await axios.post('https://food-api-theta.vercel.app/login', formData);
 
       if (response.status === 200) {
-        console.log('Registration successful');
+        console.log('Login successful');
         console.log('User data:', response.data);
         localStorage.setItem('user', JSON.stringify(response.data));
-        navigate("/")
-    
-        const email = formData.email;
-        localStorage.setItem('email', email  );
+        navigate("/");
 
+        const username = formData.username; // Change 'email' to 'username'
+        setEmail(username);
       } else {
-        console.error('Registration failed');
+        console.error('Login failed');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -49,7 +46,7 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <h1>Login</h1>
             <div className="input">
-              <input type="username" name='email' value={formData.email} onChange={handleChange} placeholder="Email" />
+              <input type="text" name='username' value={formData.username} onChange={handleChange} placeholder="Username" /> {/* Change 'email' to 'username' */}
             </div>
             <div className="input">
               <input type="password" name='password' value={formData.password} onChange={handleChange} placeholder="Password"/>
@@ -62,7 +59,8 @@ const Login = () => {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default Login;
+

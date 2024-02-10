@@ -4,7 +4,7 @@ import { useCart, useDispatchCart } from '../components/ContextReducer';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 export default function Cart() {
-  let {state} = useCart();
+  let {state,Email} = useCart();
   let dispatch = useDispatchCart();
   if (state.length === 0) {
     return (
@@ -16,7 +16,7 @@ export default function Cart() {
 
 
   const handleCheckOut = async () => {
-    let email = localStorage.getItem("email");
+
     let response = await fetch("https://food-api-theta.vercel.app/orderData", {
       
       method: 'POST',
@@ -25,7 +25,7 @@ export default function Cart() {
       },
       body: JSON.stringify({
         order_data: state,
-        email: email,
+        email: Email,
         order_date: new Date().toDateString()
       })
     });

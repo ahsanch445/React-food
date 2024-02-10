@@ -33,13 +33,13 @@ export default function MyOrder() {
     }, [])
 
     return (
-        <div>
+        <div className=' bg-black '>
             <div>
                 <Navbar />
             </div>
 
-            <div className='container'>
-                <div className='row'>
+            <div className=' bg-black container flex justify-center items-center mt-[5vw]'>
+                <div className=''>
 
                     {orderData !== {} ? Array(orderData).map(data => {
                         return (
@@ -49,22 +49,22 @@ export default function MyOrder() {
                                         item.map((arrayData) => {
                                             return (
                                                 <div  >
-                                                    {arrayData.Order_date ? <div className='m-auto mt-5'>
+                                                    {arrayData.Order_date ? <div className=' text-yellow-400 m-auto mt-5'>
 
                                                         {data = arrayData.Order_date}
                                                         <hr />
                                                     </div> :
 
-                                                        <div className='col-12 col-md-6 col-lg-3' >
-                                                            <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
-                                                                <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
-                                                                <div className="card-body">
-                                                                    <h5 className="card-title">{arrayData.name}</h5>
+                                                        <div  className='col-12 col-md-6 col-lg-3' >
+                                                            <div className="card mt-3  bg-black" style={{ padding:"1vw",  width: "45vw",border:"1px solid yellow", marginTop:"2vw" }}>
+                                                                <img src={arrayData.img}  className="card-img-top " alt="..." style={{ height: "20vw", objectFit: "fill" }} />
+                                                                <div className="card-body bg-black">
+                                                                    <h5  className="text-white card-title text-[3vw]">{arrayData.name}</h5>
                                                                     <div className='container w-100 p-0' style={{ height: "38px" }}>
-                                                                        <span className='m-1'>{arrayData.qty}</span>
-                                                                        <span className='m-1'>{arrayData.size}</span>
-                                                                        <span className='m-1'>{data}</span>
-                                                                        <div className=' d-inline ms-2 h-100 w-20 fs-5' >
+                                                                        <span className='m-1 text-[1.8vw] text-white '>{arrayData.qty}</span>
+                                                                        <span className='m-1 text-[1.8vw] text-white '>{arrayData.size}</span>
+                                                                        <span className='m-1 text-[1.8vw] text-white '>{data}</span>
+                                                                        <div className='text-white  text-[1.8vw] d-inline ms-2 h-100 w-20 ' >
                                                                             Rs{arrayData.price}/-
                                                                         </div>
                                                                     </div>

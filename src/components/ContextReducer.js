@@ -32,11 +32,12 @@ const reducer = (state, action) => {
 export const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, []);
     const [Search, setSearch] = useState("")
-    console.log(Search)
+    const [Email, setEmail] = useState()
+   
 
     return (
         <CartDispatchContext.Provider value={dispatch}>
-            <CartStateContext.Provider value={{state,Search,setSearch}}>
+            <CartStateContext.Provider value={{state,Search,setSearch,setEmail,Email}}>
                 {children}
             </CartStateContext.Provider>
         </CartDispatchContext.Provider>
