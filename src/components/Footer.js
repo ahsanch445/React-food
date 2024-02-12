@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
             <h3 className="mb-5">Receive exclusive offers in your mailbox</h3>
             <form   className="d-flex flex-wrap flex-row gap-3">
-              <img className="mail-icon" src="./img/mail-icon.svg" alt="mail-icon" />
+             
               <input 
               ref={emailInputRef}
                 className="input-email Input-Footer"
@@ -67,13 +67,13 @@ export default function Footer() {
           </div>
         </div>
        <div id="data" className='w-full '>
-        <div  className="rights d-flex justify-content-between con mb-5">
-          <p className="p1">
+        <div  className="rights justify-content-between con mb-2">
+          <p className="p1 flex gap-2">
             All rights Reserved
-           
+            <img src="./img/copy-right-symble.svg" alt="copy-right-symble" />
           </p>
-          <img src="./img/copy-right-symble.svg" alt="copy-right-symble" />
-          <p className="p2">
+
+          <p className=" flex">
             <img src="./img/Made with  by.png" alt="yellow-heart" />
             <span>Ahsan</span>
           </p>

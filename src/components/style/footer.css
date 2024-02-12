@@ -77,9 +77,16 @@ footer {
   opacity: 0.2;
   line-height: 100%; /* 24px */
   gap: 10px;
+
+ 
+}
+.social-icons{
+  display: flex;
 }
 .social-icons img {
-  margin-left: 5px;
+  margin-left: 1vw;
+  
+
 }
 .footer-right > h3 {
   color: #bbb;
@@ -161,11 +168,6 @@ footer {
   font-weight: 700;
 }
 
-.mail-icon {
-  position: relative;
-  top: 67px;
-  left: 15px;
-}
 
 /* ? footer container style ends here  */
 
@@ -238,7 +240,7 @@ footer {
   }
   @media (max-width: 767px) {
     .footer-btn {
-      width: 220px;
+     
         margin-top: 10px;
       }
       .input-email {
@@ -246,6 +248,6 @@ footer {
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 220px;
+        width: 319px;
       }
   }
