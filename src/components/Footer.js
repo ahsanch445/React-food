@@ -66,8 +66,10 @@ export default function Footer() {
             </form>
           </div>
         </div>
-       <div id="data" className='w-full flex justify-center items-center'>
-        <div  className="rights justify-content-between con mb-2">
+      
+      </div>
+      <div id="data" className='  w-full flex justify-center items-center'>
+        <div  className="rights mb-2  w-full">
           <p className="p1 flex gap-2">
             All rights Reserved
             <img src="./img/copy-right-symble.svg" alt="copy-right-symble" />
@@ -80,7 +82,6 @@ export default function Footer() {
         </div>
 
        </div>
-      </div>
     </footer>
 
 </>
