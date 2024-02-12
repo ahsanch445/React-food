@@ -240,7 +240,7 @@ footer {
   }
   @media (max-width: 767px) {
     .footer-btn {
-     
+      width: 319px;
         margin-top: 10px;
       }
       .input-email {

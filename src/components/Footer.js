@@ -66,7 +66,7 @@ export default function Footer() {
             </form>
           </div>
         </div>
-       <div id="data" className='w-full '>
+       <div id="data" className='w-full flex justify-center items-center'>
         <div  className="rights justify-content-between con mb-2">
           <p className="p1 flex gap-2">
             All rights Reserved
