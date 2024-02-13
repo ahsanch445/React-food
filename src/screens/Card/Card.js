@@ -2,30 +2,25 @@ import React, { useContext, useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import CardItem from "../../components/Card"; 
 import { useCart } from '../../components/ContextReducer';
-
+import axios from 'axios';
 const Card = () => {
     const {Search}=useCart()
   const [foodCat, setFoodCat] = useState([])
   const [foodItems, setFoodItems] = useState([])
   
+ useEffect(() => {
   const loadFoodItems = async () => {
-    let response = await fetch("https://food-api-theta.vercel.app/foodData", {
-    
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-
-    });
-    response = await response.json()
+    let response = await axios.post("https://food-api-theta.vercel.app/foodData");
    
-    setFoodItems(response[0])
-    setFoodCat(response[1])
+   console.log(response.data)
+    setFoodItems(response.data[0])
+    setFoodCat(response.data[1])
   }
+  loadFoodItems()
+   
+ }, [])
+ 
 
-  useEffect(() => {
-    loadFoodItems()
-  }, [])
 
   return (
   <div className='bg-black'>
