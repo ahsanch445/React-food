@@ -8,7 +8,7 @@ export default function MyOrder() {
 
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-        await fetch("https://food-api-theta.vercel.app/myOrderData", {
+        await fetch("https://food-api-fegl.vercel.app/myOrderData", {
            
             method: 'POST',
             headers: {

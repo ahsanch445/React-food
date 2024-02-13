@@ -10,7 +10,7 @@ const Card = () => {
   
  useEffect(() => {
   const loadFoodItems = async () => {
-    let response = await axios.post("https://food-api-theta.vercel.app/foodData");
+    let response = await axios.post("https://food-api-fegl.vercel.app/foodData");
    
    console.log(response.data)
     setFoodItems(response.data[0])

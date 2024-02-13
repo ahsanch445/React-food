@@ -17,7 +17,7 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
 
-    let response = await fetch("https://food-api-theta.vercel.app/orderData", {
+    let response = await fetch("https://food-api-fegl.vercel.app/orderData", {
       
       method: 'POST',
       headers: {

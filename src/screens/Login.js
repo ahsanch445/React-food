@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://food-api-theta.vercel.app/login', formData);
+      const response = await axios.post('https://food-api-fegl.vercel.app/login', formData);
 
       if (response.status === 200) {
         console.log('Login successful');
